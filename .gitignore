@@ -1,0 +1,44 @@
+# General
+bin/
+obj/
+*.user
+*.suo
+*.csproj.user
+*.dbmdl
+*.jfm
+*.pdb
+*.cache/
+*.log
+*.vscode/
+*.DS_Store
+Thumbs.db
+.vs/
+FrontEnd/obj/
+
+
+# Build y artefactos publicados
+publish/
+out/
+
+# Configuración temporal y archivos locales
+*.log
+*.tmp
+*.ide.local
+
+# Configuración de usuario para VS Code
+.vscode/
+
+# Configuración de usuario para Visual Studio
+*.sln.docstates
+*.sln.ide.local
+
+# Dependencias externas (si usas npm para Blazor WASM)
+node_modules/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Archivos específicos de Blazor WebAssembly
+wwwroot/dist/
+wwwroot/framework/
