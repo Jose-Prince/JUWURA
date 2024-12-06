@@ -9,13 +9,13 @@ Elixir and Erlang
 
 Once installed,
 
-run commands to install phoenix framework:
+run commands to install project:
 
-$ mix archive.install hex phx_new 
+$ mix new backura
 $
-Then to create an application you use 
+Then Install dependencies
 $ 
-mix phx.new (nombre_proyecto) --no-assets  --no-html --no-ecto
+mix deps.get 
 $
 
 to connect with database we can use this
