@@ -1,0 +1,16 @@
+.google-button-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #FFF;
+    padding: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.google-button-style:hover {
+    opacity: 0.75;
+    border: 1px solid #000;
+}

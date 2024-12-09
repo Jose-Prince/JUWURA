@@ -30,10 +30,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Test.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Components/GoogleButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Hb29nbGVCdXR0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-tfmddmkiyg
+
 [/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-0jdudv06m1
@@ -57,3 +57,7 @@ build_metadata.AdditionalFiles.CssScope = b-39jngn886s
 [/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Layout/PageHeader.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L1BhZ2VIZWFkZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-eaxoz5fkzg
+
+[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-mr0gilpfhz
