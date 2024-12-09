@@ -1,0 +1,37 @@
+@using FrontEnd.Components
+@page "/auth/register"
+
+<PageTitle>Register</PageTitle>
+
+<div class="register-container">
+    <h1 class="size-font">Welcome to Juwura</h1>
+
+    <div class="form-container">
+        <div class="form-group">
+            <Field>
+                <FieldLabel>Email address</FieldLabel>
+                <TextEdit Placeholder="Email" />
+            </Field>
+        </div>
+        <div class="form-group">
+            <Field>
+                <FieldLabel>Password</FieldLabel>
+                <TextEdit Placeholder="Password"/>
+            </Field>
+        </div>
+        <div class="form-group">
+            <Field>
+                <FieldLabel>Confirm password</FieldLabel>
+                <TextEdit Placeholder="Password"/>
+            </Field>
+        </div>
+        <Button Color="Color.Primary" Size="Size.Large" style="border-radius: 30px;">
+            <span style="white-space: pre;">               Get in              </span>
+        </Button>
+    </div>
+    <div class="form-group">
+        <Divider DividerType="DividerType.TextContent" Text="or"/>
+    </div>
+    <GoogleButton/>
+    <h6 style="display: flex; gap: 10px;">Do you have an account? <p class="account-creation">Use your account</p></h6>
+</div>

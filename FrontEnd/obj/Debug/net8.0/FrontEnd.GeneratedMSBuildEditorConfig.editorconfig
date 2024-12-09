@@ -61,3 +61,7 @@ build_metadata.AdditionalFiles.CssScope = b-eaxoz5fkzg
 [/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-mr0gilpfhz
+
+[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-7oj629hjjx
