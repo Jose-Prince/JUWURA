@@ -10,3 +10,22 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+<Blazorise.ThemeProvider Theme="@theme">
+    <Router AppAssembly="typeof(App).Assembly">
+        <Found>...</Found>
+        <NotFound>...</NotFound>
+    </Router>
+</Blazorise.ThemeProvider>
+
+@code {
+    private Theme theme = new Theme
+    {
+        ColorOptions = new ThemeColorOptions
+        {
+            Primary = "#49008A",
+            Secondary = "#A65529",
+            // other
+        }
+    };
+}

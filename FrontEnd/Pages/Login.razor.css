@@ -1,0 +1,39 @@
+.login-container, .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-container {
+    height: 100%;
+    gap: 10px;
+}
+
+.form-container {
+    margin-bottom: 1rem;
+}
+
+h1.size-font {
+    font-size: calc(1.375rem + 50px);
+}
+
+.form-group {
+    width: 75%;
+}
+
+.account-creation {
+    color: #8A3FFC;
+    cursor: pointer;
+}
+
+.account-creation:hover {
+    color: #49008A;
+}
+
+@media (min-width: 641px) {
+    .form-group {
+        width: calc(20rem + 10px);
+    }
+}
