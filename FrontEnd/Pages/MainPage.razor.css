@@ -1,0 +1,14 @@
+.columns-project {
+  display: grid;
+  grid-template-columns: 20% 60% 20%; 
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
