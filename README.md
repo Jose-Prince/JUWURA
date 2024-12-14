@@ -17,13 +17,3 @@ Then Install dependencies
 $ 
 mix deps.get 
 $
-
-to connect with database we can use this
-$
-mix ecto.create
-$
-
-To start the server
-$
-mix phx.server
-$
