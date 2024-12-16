@@ -1,11 +1,9 @@
 .columns-project {
   display: grid;
-  grid-template-columns: 20% 60% 20%; 
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  grid-template-columns: 20% 60% 20%;
+  padding: 20px 10px;
   height: 100%;
+  gap: 10px;
 }
 
 .center-content {
@@ -22,14 +20,21 @@
   height: 100%;
   background-color: #F2DFB1;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .project-display-side {
-  display: flex; 
-  padding-top: 10px; 
-  padding-bottom: 10px;  
-  align-items: center;  
-  gap: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.project-display-center {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 ul li::marker {
@@ -41,4 +46,36 @@ ul li::marker {
   margin-bottom: 5px;
   display: flex;
   justify-content: flex-end;
+}
+
+.style-project-display {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  scrollbar-width: thin; /* For Firefox */
+}
+
+.style-project-display::-webkit-scrollbar {
+  height: 6px;
+}
+
+.style-project-display::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.style-project-display::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.center-style-projects {
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
