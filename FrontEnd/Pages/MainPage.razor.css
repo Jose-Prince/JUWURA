@@ -5,10 +5,40 @@
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
+  height: 100%;
 }
 
 .center-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  background-color: #F2DFB1;
+  padding: 10px;
+}
+
+.project-display-side {
+  display: flex; 
+  padding-top: 10px; 
+  padding-bottom: 10px;  
+  align-items: center;  
+  gap: 5px;
+}
+
+ul li::marker {
+  color: #A5D6A7;
+  font-size: 24px;
+}
+
+.date-direction {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
 }

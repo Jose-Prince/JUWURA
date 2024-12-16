@@ -2,24 +2,94 @@
 @page "/projects"
 
 <div class="columns-project">
-   <div class="center-content">
-	<Button Color="Color.Primary" style="border-radius: 30px; width: 150px">+ New Project</Button>
-	<h2>Projects</h2>
-	<Divider style="margin-top: 0"/>
-	<Field>
-	   <Addons>
-	      <Addon AddonType="AddonType.Body">
-	      	<TextEdit Placeholder="Search Project"/>
-	      </Addon>
-	      <Addon AddonType="AddonType.End">
-		<AddonLabel>
-		   <Image Source="images/magnifying-glass.png" Text="Search Icon" style="height: 30px"/>
-		</AddonLabel>
-	      </Addon>
-	   </Addons>
-	</Field>
+   <div class="center-content" style="padding-right: 10px;">
+      <Button Color="Color.Primary" Size="Size.Large" style="border-radius: 30px; width: 200px">+ New Project</Button>
+      <h2>Projects</h2>
+      <Divider style="margin-top: 0"/>
+      <Field>
+         <Addons>
+            <Addon AddonType="AddonType.Body">
+               <TextEdit Placeholder="Search Project"/>
+            </Addon>
+            <Addon AddonType="AddonType.End">
+         <AddonLabel>
+            <Image Source="images/magnifying-glass.png" Text="Search Icon" style="height: 30px"/>
+         </AddonLabel>
+            </Addon>
+         </Addons>
+      </Field>
+      <div class="projects-container">
+         @foreach (var project in projects)
+         {
+            <div class="project-display-side">
+               <Image Source="https://media.gq.com.mx/photos/66b3e2ab1eb4176c241add84/1:1/w_2000,h_2000,c_limit/Mejores_series_de_anime.jpg" Text="Anime image" style="width: 40px; border-radius: 50%;"/>
+               <p style="margin-bottom: 0"><b>@project.Name</b></p>
+            </div>
+         }
+      </div>
    </div>
-   <p>4</p>
-   <p>4</p>
+   <div style="border-left: 1px solid #999; border-right: 1px solid #999;">
+      4
+   </div>
+   <div class="center-content" style="padding-left: 10px;">
+      <h2>To Do</h2>
+      <Divider style="margin-top: 0;"/>
+      <div class="projects-container">
+         <ul>
+            @foreach (var task in tasks) {
+               <li><h4 style="margin-bottom: 0">@task.name</h4></li>
+               <div class="date-direction">@task.doDate.ToString("dd/MM/yyyy")</div>
+            }
+         </ul>
+      </div>
+   </div>
 </div>
 
+@code {
+   public class ProjectClass
+   {
+      public string Name { get; set; }
+      public string Owner { get; set; }
+      public string[] Members { get; set; }
+      public string Picture { get; set; }
+      public DateTime BeginDate { get; set; }
+      public DateTime EndDate { get; set; }
+      
+      public ProjectClass(string name, string owner, string[] members, string picture, DateTime beginDate, DateTime endDate)
+      {
+         Name = name;
+         Owner = owner;
+         Members = members;
+         Picture = picture;
+         BeginDate = beginDate;
+         EndDate = endDate;
+      }
+   }
+
+   List<ProjectClass> projects = new()
+   {
+    new ProjectClass("Project A", "Alice", new[] { "Bob", "Charlie" }, "projectA.png", new DateTime(2024, 01, 01), new DateTime(2024, 12, 31)),
+    new ProjectClass("Project B", "David", new[] { "Eve", "Frank" }, "projectB.png", new DateTime(2024, 02, 01), new DateTime(2024, 11, 30)),
+    new ProjectClass("Project C", "Grace", new[] { "Hannah", "Ian" }, "projectC.png", new DateTime(2024, 03, 01), new DateTime(2024, 10, 31))
+   };
+
+   public class TaskClass
+   {
+      public string name { get; set; }
+      public string inCharge { get; set; }
+      public DateTime doDate { get; set; }
+
+      public TaskClass(string Name, string InCharge, DateTime DoDate) {
+         name = Name;
+         inCharge = InCharge;
+         doDate = DoDate;
+      }
+   }
+
+   List<TaskClass> tasks = new()
+   {
+      new TaskClass("Crear tarea", "José Prince", new DateTime(2024,10,01)),
+      new TaskClass("Crear proyecto", "José Prince", new DateTime(2024,02,02)),
+      new TaskClass("Ganar competencia", "José Prince", new DateTime(2024,03,03))
+   };
+}
