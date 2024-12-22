@@ -14,7 +14,7 @@ defmodule Backura.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      applications: [:cowboy, :logger, :plug, :mongodb_driver], mod: {JAPI, []}, env: [cowboy_port: 8080]
+      applications: [:cowboy, :logger, :plug, :jason ,:mongodb_driver], mod: {JAPI, []}, env: [cowboy_port: 8080]
     ]
   end
 
