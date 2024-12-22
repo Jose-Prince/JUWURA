@@ -11,15 +11,16 @@ Once installed,
 
 run commands to install project:
 
-$ mix new backura
-$
-Then Install dependencies
 $ 
-mix deps.get 
+1. mix new backura
+$
+### Then Install dependencies
+$ 
+2. mix deps.get 
 $
 
 
-To run the API use
+### To run the API use
 $
-mix run --no-halt
+3. mix run --no-halt
 $
