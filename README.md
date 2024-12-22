@@ -17,3 +17,9 @@ Then Install dependencies
 $ 
 mix deps.get 
 $
+
+
+To run the API use
+$
+mix run --no-halt
+$
