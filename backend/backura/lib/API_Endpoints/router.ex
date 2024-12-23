@@ -2,6 +2,10 @@ defmodule JAPI.Router do
   use Plug.Router
   use Plug.ErrorHandler
 
+  plug CORSPlug,
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  headers: ["Content-Type", "Authorization"]
 
   plug Plug.Parsers,
   parsers: [:urlencoded, :multipart, :json],
