@@ -3,7 +3,7 @@
 
 <div class="columns-project">
    <div class="center-content" style="padding-right: 10px;">
-      <Button Color="Color.Primary" Size="Size.Large" style="border-radius: 30px; width: 200px">+ New Project</Button>
+      <Button Color="Color.Primary" Size="Size.Large" Clicked="@ShowModal" style="border-radius: 30px; width: 200px">+ New Project</Button>
       <h2>Projects</h2>
       <Divider style="margin-top: 0"/>
       <Field>
@@ -98,6 +98,31 @@
    </div>
 </div>
 
+@* Modal for creating a Project *@
+
+<Modal @ref="modalRef">
+    <ModalContent Centered>
+        <ModalHeader>
+            <ModalTitle>Create a Project</ModalTitle>
+            <CloseButton />
+        </ModalHeader>
+        <ModalBody>
+            <Field>
+                <FieldLabel>Title</FieldLabel>
+                <TextEdit Placeholder="Project's title" />
+            </Field>
+            <Field>
+               <FieldLabel>Description</FieldLabel>
+               <MemoEdit AutoSize/>
+            </Field>
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
+            <Button Color="Color.Primary" Clicked="@HideModal">Create</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
+
 @code {
    public class ProjectClass
    {
@@ -149,4 +174,16 @@
       new TaskClass("Crear proyecto", "José Prince", new DateTime(2024,02,02)),
       new TaskClass("Ganar competencia", "José Prince", new DateTime(2024,03,03))
    };
+
+   private Modal modalRef;
+
+   private Task ShowModal()
+   {
+      return modalRef.Show();
+   }
+
+   private Task HideModal()
+   {
+      return modalRef.Hide();
+   }
 }
