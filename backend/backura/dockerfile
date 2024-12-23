@@ -1,5 +1,5 @@
 # Use the official Elixir image from the Docker Hub
-FROM elixir:1.17 AS builder
+FROM elixir:latest AS builder  # Use the latest Elixir image
 
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential git \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -10,7 +10,7 @@ RUN mix local.hex --force && mix local.rebar --force
 WORKDIR /app
 
 # Copy the mix.exs and mix.lock to fetch dependencies first
-COPY mix.exs mix.lock ./
+COPY mix.exs mix.lock ./ 
 
 # Install mix dependencies
 RUN mix deps.get
@@ -22,7 +22,7 @@ COPY . .
 RUN mix compile
 
 # Use the official Elixir runtime image to run the app
-FROM elixir:1.17
+FROM elixir:latest  # Again using the latest Elixir image
 
 # Set the working directory for the runtime container
 WORKDIR /app
