@@ -1,0 +1,27 @@
+# Use an official Elixir image as the base image
+FROM elixir:1.17-alpine
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Install dependencies for building Erlang/Elixir
+RUN apk update && apk add --no-cache \
+    erlang \
+    git \
+    build-base \
+    bash
+
+# Copy the mix.exs and mix.lock to leverage Docker cache
+COPY mix.exs mix.lock ./
+
+# Install the Elixir dependencies
+RUN mix deps.get
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port your app will run on (adjust if needed)
+EXPOSE 8080
+
+# Run the application
+CMD ["mix", "run", "--no-halt"]
