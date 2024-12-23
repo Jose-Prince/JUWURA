@@ -1,8 +1,8 @@
 # Use the official Elixir image from the Docker Hub
 FROM elixir:1.17 AS builder
 
-# Install dependencies for Elixir (and Node.js if needed for assets)
-RUN apk add --no-cache build-base git
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential git \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory inside the container
 WORKDIR /app
