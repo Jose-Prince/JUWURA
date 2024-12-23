@@ -1,39 +1,27 @@
-# Use the official Elixir image from the Docker Hub as the base image
-FROM elixir:latest AS builder
-
-# Install dependencies for building Elixir applications
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential git \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Install Hex and Rebar (the Elixir package manager and build tool)
-RUN mix local.hex --force && mix local.rebar --force
+# Use an official Elixir image as the base image
+FROM elixir:1.17-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the mix.exs and mix.lock to fetch dependencies first
-COPY mix.exs mix.lock ./ 
+# Install dependencies for building Erlang/Elixir
+RUN apk update && apk add --no-cache \
+    erlang \
+    git \
+    build-base \
+    bash
 
-# Install mix dependencies
+# Copy the mix.exs and mix.lock to leverage Docker cache
+COPY mix.exs mix.lock ./
+
+# Install the Elixir dependencies
 RUN mix deps.get
 
 # Copy the rest of the application code
 COPY . .
 
-# Build the project (optional: this can be skipped if you don't need to precompile)
-RUN mix compile
-
-# Use the official Elixir runtime image to run the app
-FROM elixir:latest  # Use the latest Elixir image for the runtime
-
-# Set the working directory for the runtime container
-WORKDIR /app
-
-# Copy compiled files and dependencies from the builder stage
-COPY --from=builder /app /app
-
-# Expose the application port (adjust if needed)
+# Expose the port your app will run on (adjust if needed)
 EXPOSE 8080
 
-# Command to start the Plug app
+# Run the application
 CMD ["mix", "run", "--no-halt"]
