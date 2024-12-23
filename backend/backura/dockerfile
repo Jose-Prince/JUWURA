@@ -1,9 +1,11 @@
-# Use the official Elixir image from the Docker Hub
-FROM elixir:latest AS builder  # Use the latest Elixir image
+# Use the official Elixir image from the Docker Hub as the base image
+FROM elixir:latest AS builder
 
+# Install dependencies for building Elixir applications
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential git \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install Hex and Rebar (the Elixir package manager and build tool)
 RUN mix local.hex --force && mix local.rebar --force
 
 # Set the working directory inside the container
@@ -22,7 +24,7 @@ COPY . .
 RUN mix compile
 
 # Use the official Elixir runtime image to run the app
-FROM elixir:latest  # Again using the latest Elixir image
+FROM elixir:latest  # Use the latest Elixir image for the runtime
 
 # Set the working directory for the runtime container
 WORKDIR /app
