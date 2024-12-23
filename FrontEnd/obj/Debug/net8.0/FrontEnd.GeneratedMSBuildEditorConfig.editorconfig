@@ -13,59 +13,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = FrontEnd
 build_property.RootNamespace = FrontEnd
-build_property.ProjectDir = /home/akice/Documentos/Repositories/JUWURA/FrontEnd/
+build_property.ProjectDir = d:\Juwura\JUWURA\FrontEnd\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/akice/Documentos/Repositories/JUWURA/FrontEnd
+build_property.MSBuildProjectDirectory = d:\Juwura\JUWURA\FrontEnd
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/App.razor]
+[d:/Juwura/JUWURA/FrontEnd/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+[d:/Juwura/JUWURA/FrontEnd/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Test.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVzdC5yYXpvcg==
+[d:/Juwura/JUWURA/FrontEnd/Pages/Test.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
+[d:/Juwura/JUWURA/FrontEnd/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/_Imports.razor]
+[d:/Juwura/JUWURA/FrontEnd/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Components/GoogleButton.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Hb29nbGVCdXR0b24ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-tfmddmkiyg
+[d:/Juwura/JUWURA/FrontEnd/Components/GoogleButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xHb29nbGVCdXR0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-m1r0jtx0u3
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-0jdudv06m1
+[d:/Juwura/JUWURA/FrontEnd/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-92j0k3cvwz
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-39jngn886s
+[d:/Juwura/JUWURA/FrontEnd/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-7appiq78kf
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Layout/PageHeader.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L1BhZ2VIZWFkZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-eaxoz5fkzg
+[d:/Juwura/JUWURA/FrontEnd/Layout/PageHeader.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XFBhZ2VIZWFkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ekx4oh3hkn
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-mr0gilpfhz
+[d:/Juwura/JUWURA/FrontEnd/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-3ikqs3vh4x
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/MainPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpblBhZ2UucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-pk54s5vraa
+[d:/Juwura/JUWURA/FrontEnd/Pages/MainPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpblBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-9bz1noj734
 
-[/home/akice/Documentos/Repositories/JUWURA/FrontEnd/Pages/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVnaXN0ZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-7oj629hjjx
+[d:/Juwura/JUWURA/FrontEnd/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-egdbm6l7ey

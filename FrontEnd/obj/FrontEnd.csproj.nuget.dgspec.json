@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/akice/Documentos/Repositories/JUWURA/FrontEnd/FrontEnd.csproj": {}
+    "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj": {}
   },
   "projects": {
-    "/home/akice/Documentos/Repositories/JUWURA/FrontEnd/FrontEnd.csproj": {
+    "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/akice/Documentos/Repositories/JUWURA/FrontEnd/FrontEnd.csproj",
+        "projectUniqueName": "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj",
         "projectName": "FrontEnd",
-        "projectPath": "/home/akice/Documentos/Repositories/JUWURA/FrontEnd/FrontEnd.csproj",
-        "packagesPath": "/home/akice/.nuget/packages/",
-        "outputPath": "/home/akice/Documentos/Repositories/JUWURA/FrontEnd/obj/",
+        "projectPath": "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "D:\\Juwura\\JUWURA\\FrontEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/akice/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -73,7 +74,7 @@
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.11, )",
+              "version": "[9.0.0, )",
               "autoReferenced": true
             }
           },
@@ -90,7 +91,19 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.11, 8.0.11]"
             }
           ],
@@ -99,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
