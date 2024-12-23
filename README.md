@@ -20,7 +20,16 @@ dotnet add package Blazorise
 dotnet add package Blazorise.Bootstrap5
 dotnet add package Blazorise.Icons.FontAwesome
 ```
+For running the project simply use:
 
+```
+dotnet run
+```
+or
+
+```
+dotnet watch run
+```
 
 ## Dependencies
 
