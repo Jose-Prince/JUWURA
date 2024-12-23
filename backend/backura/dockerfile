@@ -4,6 +4,8 @@ FROM elixir:1.17 AS builder
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential git \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN mix local.hex --force && mix local.rebar --force
+
 # Set the working directory inside the container
 WORKDIR /app
 
