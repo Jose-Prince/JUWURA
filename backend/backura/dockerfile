@@ -1,5 +1,5 @@
 # Use the official Elixir image from the Docker Hub
-FROM elixir:1.15-alpine AS builder
+FROM elixir:1.17 AS builder
 
 # Install dependencies for Elixir (and Node.js if needed for assets)
 RUN apk add --no-cache build-base git
@@ -20,7 +20,7 @@ COPY . .
 RUN mix compile
 
 # Use the official Elixir runtime image to run the app
-FROM elixir:1.15-alpine
+FROM elixir:1.17
 
 # Set the working directory for the runtime container
 WORKDIR /app
