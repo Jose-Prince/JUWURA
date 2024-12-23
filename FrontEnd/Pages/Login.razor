@@ -4,7 +4,7 @@
 <PageTitle>Home</PageTitle>
 
 <div class="login-container">
-    <h1 class="size-font">Log in</h1>
+    <h1 class="size-font">Welcome back!</h1>
 
     <div class="form-container">
         <div class="form-group">
@@ -27,5 +27,9 @@
         <Divider DividerType="DividerType.TextContent" Text="or"/>
     </div>
     <GoogleButton/>
-    <h6 style="display: flex; gap: 10px;">Don't have an account? <p class="account-creation">Create account</p></h6>
+    <h6 style="display: flex; gap: 10px;">Don't have an account? 
+        <NavLink href="/auth/register">
+            <p class="account-creation">Create account</p>
+        </NavLink>
+    </h6>
 </div>
