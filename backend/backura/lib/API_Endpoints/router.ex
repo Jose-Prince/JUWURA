@@ -15,13 +15,6 @@ defmodule JAPI.Router do
   plug(:match)
   plug(:dispatch)
 
-  options _ do
-    conn
-    |> put_resp_header("access-control-allow-origin", "*")
-    |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
-    |> put_resp_header("access-control-allow-headers", "Content-Type, Authorization")
-    |> send_resp(204, "")
-  end
 
   # Welcome these are the main routes for vscode use Ctrl+G and lines here are the lines
   # Line 20 Welcome
@@ -35,6 +28,13 @@ defmodule JAPI.Router do
 
   
   get "/api/login/:email/:password" do
+
+    conn
+    |> put_resp_header("access-control-allow-origin", "*")
+    |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
+    |> put_resp_header("access-control-allow-headers", "Content-Type, Authorization")
+    |> fetch_user(email, password)
+  end
 
     email = conn.params["email"]
     password = conn.params["password"]
@@ -103,19 +103,6 @@ defmodule JAPI.Router do
     conn
     |> put_resp_content_type("application/json")  
     |> send_resp(200, json_response)  
-  end
-
-#Parametros se usan body por cierto get no tiene body jajaja
-  post "/api/register" do
-
-    nombre = conn.body_params["nombre"]
-    password = conn.body_params["password"]
-
-
-    # Try to parse the number and handle errors
-
-    send_resp(conn, 200, "Starve number received: #{nombre}, and #{password}")
-
   end
 
   # Handle unmatched routes
