@@ -2,69 +2,48 @@ defmodule JAPI.Router do
   use Plug.Router
   use Plug.ErrorHandler
 
+  # Apply CORSPlug globally
   plug CORSPlug,
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  headers: ["Content-Type", "Authorization"]
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    headers: ["Content-Type", "Authorization"]
 
   plug Plug.Parsers,
-  parsers: [:urlencoded, :multipart, :json],
-  pass: ["application/json"],
-  json_decoder: Jason
+    parsers: [:urlencoded, :multipart, :json],
+    pass: ["application/json"],
+    json_decoder: Jason
 
   plug(:match)
   plug(:dispatch)
 
-
-  # Welcome these are the main routes for vscode use Ctrl+G and lines here are the lines
-  # Line 20 Welcome
-  # Line 24 Login
-  # Line
-  
-  
-  
+  # Welcome route
   get("/api", do: send_resp(conn, 200, "Welcome"))
 
-
-  
+  # Login route
   get "/api/login/:email/:password" do
-
-    conn
-    |> put_resp_header("access-control-allow-origin", "*")
-    |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
-    |> put_resp_header("access-control-allow-headers", "Content-Type, Authorization")
-    |> fetch_user(email, password)
-  end
-
     email = conn.params["email"]
     password = conn.params["password"]
-    
-    # Fetch users as a stream
+
+    # Query the MongoDB database
     cursor = Mongo.find(:mongo, "usuarios", %{"password" => password, "mail" => email})
-    users =
-      for doc <- cursor.docs, into: [] do
-        doc
-      end
-      transformed_users = Enum.map(cursor.docs, fn user ->
+    transformed_users =
+      cursor.docs
+      |> Enum.map(fn user ->
         Map.update!(user, "_id", fn %BSON.ObjectId{value: value} ->
           # Encode the ObjectId value to a lower-case hex string
           Base.encode16(value, case: :lower)
         end)
       end)
-      
-      # Convert the transformed data into JSON
+
+    # Convert to JSON and send response
     json_response = Jason.encode!(transformed_users)
-
-    # Send the response
     conn
-    |> put_resp_content_type("application/json")  
+    |> put_resp_content_type("application/json")
     |> send_resp(200, json_response)
-    
-
   end
 
+  # Register route
   post "/api/register" do
-    # Extract data from JSON body
     name = conn.body_params["name"]
     password = conn.body_params["password"]
     username = conn.body_params["username"]
@@ -72,9 +51,16 @@ defmodule JAPI.Router do
     mail = conn.body_params["mail"]
     date = Date.utc_today()
 
-    # Insert data into MongoDB
-    case Mongo.insert_one(:mongo, "usuarios", %{name: name, password: password, username: username, last_name: last_name, user_created: Date.to_string(date), proyectos: [], mail: mail}) do
-      {:ok, result} ->
+    case Mongo.insert_one(:mongo, "usuarios", %{
+           name: name,
+           password: password,
+           username: username,
+           last_name: last_name,
+           user_created: Date.to_string(date),
+           proyectos: [],
+           mail: mail
+         }) do
+      {:ok, _result} ->
         send_resp(conn, 201, "User created")
 
       {:error, reason} ->
@@ -82,27 +68,30 @@ defmodule JAPI.Router do
     end
   end
 
+  # Fetch all users
   get "/api/users" do
-    # Fetch users as a stream
     cursor = Mongo.find(:mongo, "usuarios", %{})
-    users =
-      for doc <- cursor.docs, into: [] do
-        doc
-      end
-      transformed_users = Enum.map(cursor.docs, fn user ->
+    transformed_users =
+      cursor.docs
+      |> Enum.map(fn user ->
         Map.update!(user, "_id", fn %BSON.ObjectId{value: value} ->
-          # Encode the ObjectId value to a lower-case hex string
           Base.encode16(value, case: :lower)
         end)
       end)
-      
-      # Convert the transformed data into JSON
-    json_response = Jason.encode!(transformed_users)
 
-    # Send the response
+    json_response = Jason.encode!(transformed_users)
     conn
-    |> put_resp_content_type("application/json")  
-    |> send_resp(200, json_response)  
+    |> put_resp_content_type("application/json")
+    |> send_resp(200, json_response)
+  end
+
+  # Preflight CORS requests
+  options _ do
+    conn
+    |> put_resp_header("access-control-allow-origin", "*")
+    |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
+    |> put_resp_header("access-control-allow-headers", "Content-Type, Authorization")
+    |> send_resp(204, "")
   end
 
   # Handle unmatched routes
