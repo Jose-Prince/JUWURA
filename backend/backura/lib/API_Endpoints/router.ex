@@ -4,7 +4,7 @@ defmodule JAPI.Router do
 
   plug CORSPlug,
   origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   headers: ["Content-Type", "Authorization"]
 
   plug Plug.Parsers,
@@ -14,6 +14,14 @@ defmodule JAPI.Router do
 
   plug(:match)
   plug(:dispatch)
+
+  options _ do
+    conn
+    |> put_resp_header("access-control-allow-origin", "*")
+    |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
+    |> put_resp_header("access-control-allow-headers", "Content-Type, Authorization")
+    |> send_resp(204, "")
+  end
 
   # Welcome these are the main routes for vscode use Ctrl+G and lines here are the lines
   # Line 20 Welcome
