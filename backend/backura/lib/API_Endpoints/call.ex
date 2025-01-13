@@ -3,27 +3,31 @@ defmodule JAPI do
   require Logger
 
   def start(_type, _args) do
-    # MongoDB URL from the environment or default
-    mongo_url = System.get_env("MONGO_URL") || "mongodb://35.169.88.222:27017/juwura"
-    # Cowboy port (default to 8080)
-    port = Application.get_env(:example, :cowboy_port, 8080)
+    # Fetch MongoDB connection string from the environment or hardcoded
+    mongo_url = "mongodb+srv://juwugroup:oI4BxejVG6C4tscB@juwura.jxug5.mongodb.net/?retryWrites=true&w=majority&appName=Juwura"
 
-    # Log MongoDB connection URL
-    Logger.info("Connecting to MongoDB at #{mongo_url}")
-
-    # Start the MongoDB connection using the correct API
-    {:ok, top} = Mongo.start_link(url: "mongodb://35.169.88.222:27017/juwura")
+    port = Application.get_env(:japi, :cowboy_port, 8080)
 
     children = [
-      # MongoDB connection as a supervised process
-      {Mongo, [name: :mongo, url: mongo_url]},
+      # Start MongoDB connection with proper SSL options
+      {Mongo,
+       [
+         name: :mongo,
+         url: mongo_url,
+         ssl: true,
+         ssl_opts: [
 
-      # Cowboy HTTP server running the JAPI.Router on the specified port
-      Plug.Adapters.Cowboy.child_spec(:http, JAPI.Router, [], port: port)
+          versions: [:"tlsv1.2", :"tlsv1.3"],
+          verify: :verify_peer,
+          cacerts: :certifi.cacerts()
+        ]
+       ]},
+
+      # HTTP server with Cowboy
+      {Plug.Cowboy, scheme: :http, plug: JAPI.Router, options: [port: port]}
     ]
 
-    # Start the supervisor with the children
-    Logger.info("Started application on port #{port}")
+    Logger.info("Starting application on port #{port}")
     Supervisor.start_link(children, strategy: :one_for_one, name: JAPI.Supervisor)
   end
 end

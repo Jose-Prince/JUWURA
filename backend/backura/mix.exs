@@ -14,7 +14,7 @@ defmodule Backura.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      applications: [:cowboy, :logger, :plug, :cors_plug,:plug_cowboy ,:jason ,:mongodb_driver], mod: {JAPI, []}, env: [cowboy_port: 8080]
+      applications: [:cowboy, :logger, :plug, :cors_plug,:plug_cowboy ,:jason, :certifi ,:mongodb_driver], mod: {JAPI, []}, env: [cowboy_port: 8080]
     ]
   end
 
@@ -30,7 +30,8 @@ defmodule Backura.MixProject do
       {:decimal, "~> 2.1"} ,
       {:jason, "~> 1.4"},
       {:cors_plug, "~> 3.0"},
-      {:plug_cowboy, "~> 1.0"}
+      {:plug_cowboy, "~> 1.0"},
+      {:certifi, "~> 2.10"}
     ]
   end
 end
