@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj": {}
+    "D:\\Juwura\\fullstack\\JUWURA\\FrontEnd\\FrontEnd.csproj": {}
   },
   "projects": {
-    "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj": {
+    "D:\\Juwura\\fullstack\\JUWURA\\FrontEnd\\FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj",
+        "projectUniqueName": "D:\\Juwura\\fullstack\\JUWURA\\FrontEnd\\FrontEnd.csproj",
         "projectName": "FrontEnd",
-        "projectPath": "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj",
+        "projectPath": "D:\\Juwura\\fullstack\\JUWURA\\FrontEnd\\FrontEnd.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "D:\\Juwura\\JUWURA\\FrontEnd\\obj\\",
+        "outputPath": "D:\\Juwura\\fullstack\\JUWURA\\FrontEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"

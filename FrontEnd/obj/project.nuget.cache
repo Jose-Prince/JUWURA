@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f26+OAiMvyM=",
+  "dgSpecHash": "soWfnYAkM5c=",
   "success": true,
-  "projectFilePath": "D:\\Juwura\\JUWURA\\FrontEnd\\FrontEnd.csproj",
+  "projectFilePath": "D:\\Juwura\\fullstack\\JUWURA\\FrontEnd\\FrontEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andre\\.nuget\\packages\\blazorise\\1.7.0\\blazorise.1.7.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\blazorise.bootstrap5\\1.7.0\\blazorise.bootstrap5.1.7.0.nupkg.sha512",
