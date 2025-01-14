@@ -1,6 +1,7 @@
 ﻿@using FrontEnd.Components
 @inject ProjectService ProjectService
 @page "/"
+@inject HttpClient Http
 
 <PageTitle>Home</PageTitle>
 
@@ -63,4 +64,36 @@
             Console.WriteLine(user);
         }
     }    
+    private string email = "";
+    private List<Usuario> data= [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Make the GET request
+            data = await Http.GetFromJsonAsync<List<Usuario>>("http://35.169.88.222:8080/api/login/jau@gmail.com/123");
+            Console.WriteLine($"Data loaded with {data[0]} users.");
+            
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Error fetching data: {ex.Message}");
+        }
+    }
+
+    public class Usuario
+    {
+        public int Id { get; set; }
+        public string usuario { get; set; }
+        public string contrasena { get; set; }
+
+        public Usuario(int id, string username, string password)
+    {
+        Id = id;
+        usuario = username;
+        contrasena = password;
+    }
+    }
+
 }

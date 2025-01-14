@@ -2,6 +2,10 @@ defmodule JAPI.Router do
   use Plug.Router
   use Plug.ErrorHandler
 
+  plug CORSPlug,
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  headers: ["Content-Type", "Authorization"]
 
   plug Plug.Parsers,
   parsers: [:urlencoded, :multipart, :json],
@@ -10,6 +14,13 @@ defmodule JAPI.Router do
 
   plug(:match)
   plug(:dispatch)
+
+  options _ do
+    conn
+    |> put_resp_header("access-control-allow-origin", "*")
+    |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
+    |> put_resp_header("access-control-allow-headers", "Content-Type, Authorization")
+  end
 
   # Welcome these are the main routes for vscode use Ctrl+G and lines here are the lines
   # Line 20 Welcome
@@ -94,7 +105,7 @@ defmodule JAPI.Router do
   end
 
 #Parametros se usan body por cierto get no tiene body jajaja
-  post "/api/register" do
+  get "/api/proyecto" do
 
     nombre = conn.body_params["nombre"]
     password = conn.body_params["password"]
@@ -104,6 +115,26 @@ defmodule JAPI.Router do
 
     send_resp(conn, 200, "Starve number received: #{nombre}, and #{password}")
 
+  end
+
+
+  post "/api/proyecto" do
+    # Extract data from JSON body
+    name = conn.body_params["name"]
+    password = conn.body_params["password"]
+    username = conn.body_params["username"]
+    last_name = conn.body_params["last_name"]
+    mail = conn.body_params["mail"]
+    date = Date.utc_today()
+
+    # Insert data into MongoDB
+    case Mongo.insert_one(:mongo, "usuarios", %{name: name, password: password, username: username, last_name: last_name, user_created: Date.to_string(date), proyectos: [], mail: mail}) do
+      {:ok, result} ->
+        send_resp(conn, 201, "User created")
+
+      {:error, reason} ->
+        send_resp(conn, 500, "Failed to create user: #{inspect(reason)}")
+    end
   end
 
   # Handle unmatched routes

@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  api-service:
+    image: juwura_api  
+    container_name: jtainer
+    ports:
+      - "8080:8080"  
+    restart: unless-stopped
