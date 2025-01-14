@@ -1,4 +1,5 @@
 ﻿@using FrontEnd.Components
+@inject ProjectService ProjectService
 @page "/"
 
 <PageTitle>Home</PageTitle>
@@ -10,16 +11,16 @@
         <div class="form-group">
             <Field>
                 <FieldLabel>Email address</FieldLabel>
-                <TextEdit Placeholder="Email" />
+                <TextEdit Placeholder="Email" Text="@mail" TextChanged="@onMailChanged" />
             </Field>
         </div>
         <div class="form-group">
             <Field>
                 <FieldLabel>Password</FieldLabel>
-                <TextEdit Placeholder="Password"/>
+                <TextEdit Placeholder="Password" Text="@password" TextChanged="@onPasswordChanged"/>
             </Field>
         </div>
-        <Button Color="Color.Primary" Size="Size.Large" style="border-radius: 30px;">
+        <Button Color="Color.Primary" Size="Size.Large" style="border-radius: 30px;" Clicked="@GetInLogin">
             <span style="white-space: pre;">               Get in              </span>
         </Button>
     </div>
@@ -33,3 +34,33 @@
         </NavLink>
     </h6>
 </div>
+
+@code {
+    string mail;
+    string password;
+
+    User user;
+
+    Task onMailChanged(string value)
+    {
+        mail = value;
+
+        return Task.CompletedTask;
+    }
+
+    Task onPasswordChanged(string value)
+    {
+        password = value;
+
+        return Task.CompletedTask;
+    }
+
+    async Task GetInLogin()
+    {
+        if (mail != "" && password != "") 
+        {
+            user = await ProjectService.getUser(mail, password);
+            Console.WriteLine(user);
+        }
+    }    
+}
